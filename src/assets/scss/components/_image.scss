@@ -63,6 +63,16 @@
 			}
 		}
 
+		&.profile {
+			display: block;
+			margin: (_size(element-margin) * 1.25) 0;
+			width: 75%;
+
+			img {
+				width: 100%;
+			}
+		}
+
 		&.main {
 			display: block;
 			margin: (_size(element-margin) * 1.25) 0;

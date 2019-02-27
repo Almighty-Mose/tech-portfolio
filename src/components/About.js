@@ -6,7 +6,7 @@ export default class About extends Component {
         <React.Fragment>
             <h2 className="major">About</h2>
 
-            <span className="image main"><img src={this.props.pic} alt="" /></span>
+            <span className="image profile"><img src={this.props.pic} alt="" /></span>
             
             <p>As a Flatiron School graduate, I've been developing with Ruby, Rails, and Javascript for over a year, striving to learn as much as I can about being a full stack web developer; passionate about building clean, modern, intuitive web applications. Technical problems with "right answers" are my jam - I gravitate towards complex, nuanced, deep hobbies like programming and long-range shooting. Yes, I also specialize in hitting small things with projectiles from really far away. Under time pressure in a match, I've hit a 12' target from 315 yards on the first shot with a Ruger 10/22 rifle - which I built myself.</p>
 
