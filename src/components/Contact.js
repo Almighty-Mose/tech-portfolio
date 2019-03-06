@@ -4,7 +4,8 @@ export default class Contact extends Component {
     state = {
         name: "",
         email: "",
-        message: ""
+        message: "",
+        formEmailSent: false
     }
 
     handleChange = (event) => {
@@ -13,7 +14,41 @@ export default class Contact extends Component {
         })
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault()
+
+        this.sendMessage(
+            this.state.email,
+            this.state.name,
+            this.state.message
+        )
+    }
+
+    sendMessage(senderEmail, senderName, message) {
+        const templateID = "tech_portfolio"
+        window.emailjs.send('gmail', templateID, {
+                senderEmail,
+                senderName,
+                message
+            })
+            .then(res => {
+                this.setState({
+                    formEmailSent: true
+                })
+            })
+            //TODO: Add error handling for this function
+    }
+
     render() {
+        const formEmailSent = this.state.formEmailSent
+        let thanks
+
+        if (formEmailSent) {
+            thanks = <p>Thanks for your email!</p>
+        } else {
+            thanks = ""
+        }
+
         return (
             <React.Fragment>
             <h2 className="major">Contact</h2>
@@ -57,6 +92,8 @@ export default class Contact extends Component {
                     <li><input type="reset" value="Reset" /></li>
                 </ul>
             </form>
+
+            {thanks}
             
             <ul className="icons">
                 <li><a href="https://www.facebook.com/almightymose" className="icon fa-facebook"><span className="label">Facebook</span></a></li>
