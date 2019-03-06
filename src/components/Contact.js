@@ -1,25 +1,55 @@
 import React, { Component } from 'react'
 
 export default class Contact extends Component {
+    state = {
+        name: "",
+        email: "",
+        message: ""
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
     render() {
         return (
             <React.Fragment>
             <h2 className="major">Contact</h2>
             
-            <form method="post" action="#">
+            <form className="contact-form" onSubmit={this.handleSubmit}>
                 <div className="field half first">
                     <label htmlFor="name">Name</label>
-                    <input type="text" name="name" id="name" />
+                    <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        value={this.state.name}
+                        onChange={this.handleChange} 
+                    />
                 </div>
                 
                 <div className="field half">
                     <label htmlFor="email">Email</label>
-                    <input type="text" name="email" id="email" />
+                    <input 
+                        type="text" 
+                        name="email" 
+                        id="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}    
+                    />
                 </div>
                 
                 <div className="field">
                     <label htmlFor="message">Message</label>
-                    <textarea name="message" id="message" rows="4"></textarea>
+                    <textarea 
+                        name="message" 
+                        id="message" 
+                        rows="4"
+                        value={this.state.message}
+                        onChange={this.handleChange} 
+                    />
                 </div>
                 
                 <ul className="actions">
