@@ -36,7 +36,8 @@ export default class Contact extends Component {
                     formEmailSent: true
                 })
             })
-            //TODO: Add error handling for this function
+        //TODO: Add error handling for this function
+        //TODO: Also figure out how the hell environment vars work
     }
 
     render() {
