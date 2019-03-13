@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import * as emailjs from 'emailjs-com'
 
 export default class Contact extends Component {
     state = {
@@ -26,11 +27,11 @@ export default class Contact extends Component {
 
     sendMessage(senderEmail, senderName, message) {
         const templateID = "tech_portfolio"
-        window.emailjs.send('gmail', templateID, {
+        emailjs.send('gmail', templateID, {
                 senderEmail,
                 senderName,
                 message
-            })
+            }, 'user_ezlGGAZs7IoZsAjyVeh30')
             .then(res => {
                 this.setState({
                     formEmailSent: true
